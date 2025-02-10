@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Valentine</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
+        
+        body {
+            font-family: 'Dancing Script', cursive;
+            font-size: 28px;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            text-align: center;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            max-width: 80%;
+        }
+        .letter {
+            background: #ffd700;
+            padding: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .letter:hover {
+            transform: scale(1.1);
+        }
+        .hidden {
+            display: none;
+        }
+        .btn {
+            background: #ff4d6d;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 20px;
+        }
+        #no {
+            position: absolute;
+        }
+        img {
+            max-width: 300px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="page1">
+        <img src="V1.jpg" alt="Your image">
+        <div class="letter" onclick="openLetter()">Click to open your love letter</div>
+        <p id="message" class="hidden">My love, you are the light of my life and I cherish  every moment with you. I could not ask for my valentine to be anyone else but you. The only thing my heart desires is you, with every beat of it calling out your name, my beloved Naailah, the one  whom my soul longs for. The one who is my Queen, the one whom I will adorn with flowers, turning  her into the Queen of flowers. 💖</p>
+        <button class="btn hidden" onclick="nextPage('page1', 'page2')" id="nextBtn">Next</button>
+    </div>
+
+    <div class="container hidden" id="page2">
+        <img src="V2.jpg" alt="Your image">
+        <h2>Will you be my Valentine? 💘</h2>
+        <button class="btn" onclick="nextPage('page2', 'page3')">Yes</button>
+        <button class="btn" id="no" onmouseover="runAway()">No</button>
+    </div>
+
+    <div class="container hidden" id="page3">
+        <img src="V3.jpg" alt="A cute romantic image">
+        <h2>You said YES! 🥰</h2>
+        <p>I can't wait to spend a beautiful Valentine's Day with you, the love of my love 💕💞💖</p>
+    </div>
+
+    <script>
+        function openLetter() {
+            document.getElementById('message').classList.remove('hidden');
+            document.getElementById('nextBtn').classList.remove('hidden');
+        }
+        function nextPage(current, next) {
+            document.getElementById(current).classList.add('hidden');
+            document.getElementById(next).classList.remove('hidden');
+        }
+        function runAway() {
+            let noBtn = document.getElementById('no');
+            let x = Math.random() * (window.innerWidth - 100);
+            let y = Math.random() * (window.innerHeight - 50);
+            noBtn.style.left = x + 'px';
+            noBtn.style.top = y + 'px';
+        }
+    </script>
+</body>
+</html>
